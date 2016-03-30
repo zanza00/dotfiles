@@ -1,2 +1,4 @@
 # dotfiles
-My repo for various
+My repo for various dotfiles and settings
+
+
