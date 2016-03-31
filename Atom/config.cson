@@ -1,0 +1,49 @@
+"*":
+  "atom-beautify":
+    js_end_with_newline: true
+    js_space_after_anon_function: true
+  "atom-material-ui":
+    colors:
+      abaseColor:
+        red: 33
+        green: 150
+        blue: 243
+        alpha: 1
+      genAccent: true
+      predefinedColor: "Blue"
+    fonts: {}
+    tabs:
+      compactTabs: true
+    treeView:
+      compactList: true
+    ui:
+      panelContrast: true
+      panelShadows: true
+  core:
+    autoHideMenuBar: true
+    themes: [
+      "atom-material-ui"
+      "atom-material-syntax"
+    ]
+  editor:
+    fontFamily: "Operator Mono Light"
+    fontSize: 16
+    invisibles: {}
+    scrollPastEnd: true
+    scrollSensitivity: 200
+  "keyboard-localization":
+    useKeyboardLayout: "it_IT"
+  linter:
+    errorPanelHeight: 144
+  "linter-eslint":
+    showRuleIdInMessage: false
+    useGlobalEslint: true
+  "merge-conflicts":
+    gitPath: "C:\\Program Files\\Git\\cmd\\git.exe"
+  minimap: {}
+  pigments: {}
+  welcome:
+    showOnStartup: false
+".ini.source":
+  editor:
+    tabLength: 2
