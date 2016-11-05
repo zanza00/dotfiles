@@ -1,0 +1,16 @@
+{
+    "editor.fontFamily": "Operator Mono",
+    "editor.fontSize": 15,
+    "window.zoomLevel": 0,
+    "files.autoSave": "off",
+    "git.confirmSync": false,
+    "search.exclude": {
+        "**/.git": true,
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/.tmp": true,
+        "plugins": true,
+        "platforms": true,
+        "www": true
+    }
+}
