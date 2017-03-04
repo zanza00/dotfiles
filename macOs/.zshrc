@@ -48,15 +48,40 @@ SAVEHIST=10000 # the maximum number of commands to save I guess
     fi
 }
 
+# clone a github repo and opened it with code 
+function githubCloneAndOpen { 
+          if [[ $# = 0 ]]
+    then
+        echo "I need the url of the repo :("
+    else
+        local url="$1"
+        local repo=$(basename $url)
+        local dirName=${repo%.*}
+        eval "git clone $url && cd $dirName && code ."
+    fi
+}
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Fuzzy Finder Stuff => https://github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias fuzzyFinder='find ~/* -type f | fzf'
-alias fo='open "$(fuzzyFinder)"'
-alias cdf='cd "$(dirname "$(fuzzyFinder)")"'
+alias fuzzyFileFinder='find ~/* -type f | fzf'
+alias fuzzyDirFinder='find ~/* -type d | fzf'
+
+alias fo='open "$(fuzzyFileFinder)"'
+alias cdf='cd "$(fuzzyDirFinder)"'
+alias copyFile='fzf | pbcopy'
+alias copyDir='fuzzyDirFinder | pbcopy'
+
 
 # Aliases
-alias isc='ionic serve -w "Google Chrome"'
+# alias isc='ionic serve -w "Google Chrome"'
 alias tunneeeel='ssh -D 1080 -f root@163.172.191.137 sleep 60; spotify play'
+# clean thing that make the startup too slow
+alias zclean='rm -f ~/.zcompdump*'
+
+# Display something on init
+echo 'custom commands => fo, cdf, copyFile, copyDir, tunneeeel'
+
+fortune | cowsay | lolcat
