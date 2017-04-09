@@ -1,4 +1,4 @@
-export PATH=/usr/local/git/bin:/usr/local/bin:$PATH:/usr/local/sbin:usr/sbin:/sbins:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
+export PATH=/usr/local/git/bin:/usr/local/bin:/usr/local/sbin:usr/sbin:/sbins:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:~/bin:/Users/simonepicciani/.cargo/bin:$PATH
 
 source /Users/simonepicciani/dev/github/dotfiles/macOs/sourceable.sh
 
