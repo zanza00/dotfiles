@@ -1,0 +1,20 @@
+{
+    // "editor.fontFamily": "Operator Mono",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontSize": 15,
+    "editor.fontWeight": "300",
+    "editor.fontLigatures": true,
+    "window.zoomLevel": 0,
+    "git.confirmSync": false,
+    "terminal.external.osxExec": "iTerm.app",
+    "workbench.activityBar.visible": true,
+    "files.autoSave": "onFocusChange",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Material Theme",
+    "editor.minimap.enabled": true,
+    "workbench.statusBar.visible": true,
+    "gitlens.blame.annotation.activeLine": "off",
+    "editor.renderLineHighlight": "all",
+    "editor.dragAndDrop": true,
+    "auto-close-tag.SublimeText3Mode": true
+}
