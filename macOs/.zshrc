@@ -1,5 +1,7 @@
-export PATH=/usr/local/git/bin:/usr/local/bin:/usr/local/sbin:usr/sbin:/sbins:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:~/bin:/Users/simonepicciani/.cargo/bin:$PATH
+export PATH=/usr/local/git/bin:/usr/local/bin:/usr/local/sbin:usr/sbin:/sbins:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:~/bin:/Users/simonepicciani/.cargo/bin:/usr/local/opt/android-sdk/platform-tools:$PATH
+ANDROID_HOME=/usr/local/opt/android-sdk
 
+source <(antibody init)
 source /Users/simonepicciani/dev/github/dotfiles/macOs/sourceable.sh
 
 # NVM Stuff
@@ -39,13 +41,16 @@ fh() {
 }
 
 # Aliases
-# alias isc='ionic serve -w "Google Chrome"'
 alias tunneeeel='ssh -D 1080 -f root@163.172.191.137 sleep 60; spotify play'
 # clean thing that make the startup too slow
 alias zclean='rm -f ~/.zcompdump*'
 
-alias init='source /Users/simonepicciani/antigen.zsh'
+alias zinit='source /Users/simonepicciani/antigen.zsh'
 alias antgit='antigen bundle git'
+
+alias init='zinit && antgit && antigen bundle npm'
+
+alias setgit='git config user.email "zanza00@gmail.com"'
 
 eval $(thefuck --alias)
 
