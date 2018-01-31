@@ -1,12 +1,11 @@
-export PATH=/usr/local/git/bin:/usr/local/bin:/usr/local/sbin:usr/sbin:/sbins:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:~/bin:/Users/simonepicciani/.cargo/bin:/usr/local/opt/android-sdk/platform-tools:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:usr/sbin:/sbins:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:~/bin:/Users/simonepicciani/.cargo/bin:/usr/local/opt/android-sdk/platform-tools:$PATH
 ANDROID_HOME=/usr/local/opt/android-sdk
 
 source <(antibody init)
 source /Users/simonepicciani/dev/github/dotfiles/macOs/sourceable.sh
 
-# NVM Stuff
 export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # vars
 HISTFILE=$HOME/.zhistory # where the file will be saved
@@ -18,20 +17,6 @@ EDITOR=code-insiders
 
 # Visual Studio Code - Insiders => code .
 alias code='code-insiders'
-
-# clone a github repo and opened it with code 
-function githubCloneAndOpen { 
-          if [[ $# = 0 ]]
-    then
-        echo "I need the url of the repo :("
-    else
-        local url="$1"
-        local repo=$(basename $url)
-        local dirName=${repo%.*}
-        eval "git clone $url && cd $dirName && code ."
-    fi
-}
-alias ghco='githubCloneAndOpen'
 
 # Fuzzy Finder Stuff => https://github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -51,6 +36,18 @@ alias antgit='antigen bundle git'
 alias init='zinit && antgit && antigen bundle npm'
 
 alias setgit='git config user.email "zanza00@gmail.com"'
+
+alias town='git-town'
+
+alias ts='git-town sync'
+
+alias tpb='git-town prune-branches'
+
+alias npr='npm t && git-town new-pull-request'
+
+alias tw='yarn test:watch'
+
+alias cns='open -a Google\ Chrome\ Canary --args --disable-web-security --user-data-dir=$HOME/Documents/development/canary-without-security --remote-debugging-port=9223 --auto-open-devtools-for-tabs'
 
 eval $(thefuck --alias)
 
