@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin:/usr/local/sbin:usr/sbin:/sbins:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:~/bin:/Users/simonepicciani/.cargo/bin:/usr/local/opt/android-sdk/platform-tools:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:usr/sbin:/sbins:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:~/bin:/Users/simonepicciani/.cargo/bin:/usr/local/opt/android-sdk/platform-tools:/Users/simonepicciani/go/bin:$PATH
 ANDROID_HOME=/usr/local/opt/android-sdk
 
 source <(antibody init)
