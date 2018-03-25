@@ -2,7 +2,10 @@ export PATH=/usr/local/bin:/usr/local/sbin:usr/sbin:/sbins:/opt/X11/bin:/opt/loc
 ANDROID_HOME=/usr/local/opt/android-sdk
 
 source <(antibody init)
-source /Users/simonepicciani/dev/github/dotfiles/macOs/sourceable.sh
+antibody bundle < ~/.zsh_plugins.txt
+
+source /Users/simonepicciani/antigen.zsh
+antigen bundle osx
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -38,11 +41,6 @@ alias tunneeeel='ssh -D 1080 -f root@163.172.191.137 sleep 60; spotify play'
 # clean thing that make the startup too slow
 alias zclean='rm -f ~/.zcompdump*'
 
-alias zinit='source /Users/simonepicciani/antigen.zsh'
-alias antgit='antigen bundle git'
-
-alias init='zinit && antgit && antigen bundle npm'
-
 alias setgit='git config user.email "zanza00@gmail.com"'
 
 alias town='git-town'
@@ -56,6 +54,8 @@ alias npr='npm t && git-town new-pull-request'
 alias tw='yarn test:watch'
 
 alias cns='open -a Google\ Chrome\ Canary --args --disable-web-security --user-data-dir=$HOME/Documents/development/canary-without-security --remote-debugging-port=9223 --auto-open-devtools-for-tabs'
+
+alias ll='exa -abghl --git --color=automatic'
 
 eval $(thefuck --alias)
 
