@@ -1,11 +1,11 @@
-export PATH=/usr/local/bin:/usr/local/sbin:usr/sbin:/sbins:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:~/bin:/Users/simonepicciani/.cargo/bin:/usr/local/opt/android-sdk/platform-tools:/Users/simonepicciani/go/bin:$PATH
 ANDROID_HOME=/usr/local/opt/android-sdk
-
-source <(antibody init)
-antibody bundle < ~/.zsh_plugins.txt
+export PATH=/usr/local/bin:/usr/local/sbin:usr/sbin:/sbins:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:~/bin:/Users/simonepicciani/.cargo/bin:/usr/local/opt/android-sdk/platform-tools:/Users/simonepicciani/go/bin:$ANDROID_HOME/bin:$PATH
 
 source /Users/simonepicciani/antigen.zsh
 antigen bundle osx
+
+source <(antibody init)
+antibody bundle < ~/.zsh_plugins.txt
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
