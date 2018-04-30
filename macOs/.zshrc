@@ -37,11 +37,7 @@ fbr() {
 }
 
 # Aliases
-alias tunneeeel='ssh -D 1080 -f root@163.172.191.137 sleep 60; spotify play'
 # clean thing that make the startup too slow
-alias zclean='rm -f ~/.zcompdump*'
-
-alias setgit='git config user.email "zanza00@gmail.com"'
 
 alias town='git-town'
 
