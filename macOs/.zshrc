@@ -3,6 +3,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:usr/sbin:/sbins:/opt/X11/bin:/opt/loc
 
 source /Users/simonepicciani/antigen.zsh
 antigen bundle osx
+antigen apply
 
 source <(antibody init)
 antibody bundle < ~/.zsh_plugins.txt
