@@ -38,17 +38,8 @@ fbr() {
 }
 
 # Aliases
-# clean thing that make the startup too slow
-
-alias town='git-town'
-
-alias ts='git-town sync'
 
 alias tpb='git-town prune-branches'
-
-alias npr='npm t && git-town new-pull-request'
-
-alias tw='yarn test:watch'
 
 alias cns='open -a Google\ Chrome\ Canary --args --disable-web-security --user-data-dir=$HOME/Documents/development/canary-without-security --remote-debugging-port=9223 --auto-open-devtools-for-tabs'
 
