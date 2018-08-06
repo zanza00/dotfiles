@@ -1,5 +1,8 @@
-ANDROID_HOME=/usr/local/opt/android-sdk
-export PATH=/usr/local/bin:/usr/local/sbin:usr/sbin:/sbins:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:~/bin:/Users/simonepicciani/.cargo/bin:/usr/local/opt/android-sdk/platform-tools:/Users/simonepicciani/go/bin:$ANDROID_HOME/bin:$PATH
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=/usr/local/bin:/usr/local/sbin:usr/sbin:/sbins:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:~/bin:/Users/simonepicciani/.cargo/bin:/Users/simonepicciani/go/bin:$PATH
 
 source /Users/simonepicciani/antigen.zsh
 antigen bundle osx
@@ -10,6 +13,7 @@ antibody bundle < ~/.zsh_plugins.txt
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # vars
 HISTFILE=$HOME/.zhistory # where the file will be saved
@@ -44,6 +48,14 @@ alias tpb='git-town prune-branches'
 alias cns='open -a Google\ Chrome\ Canary --args --disable-web-security --user-data-dir=$HOME/Documents/development/canary-without-security --remote-debugging-port=9223 --auto-open-devtools-for-tabs'
 
 alias ll='exa -abghl --git --color=automatic'
+
+alias cht='cht.sh'
+
+alias hp='hophop'
+
+alias hft='hophop gh feature'
+
+alias hpr='hophop gh pr'
 
 eval $(thefuck --alias)
 
