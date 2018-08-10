@@ -57,6 +57,8 @@ alias hft='hophop gh feature'
 
 alias hpr='hophop gh pr'
 
+alias lg='lazygit'
+
 eval $(thefuck --alias)
 
 # Display something on init
