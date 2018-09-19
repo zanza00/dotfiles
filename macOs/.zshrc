@@ -65,9 +65,9 @@ fzf_gb() {
   is_in_git_repo || return
   git branch -a --color=always | grep -v '/HEAD\s' | sort |
   fzf-down --ansi --multi --tac --preview-window right:70% \
-    --preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1) | head -'$LINES |
+    --preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1) -- | head -'$LINES |
   sed 's/^..//' | cut -d' ' -f1 |
-  sed 's#^remotes/##'
+  sed 's#^remotes/origin/##'
 }
 
 fzf_gt() {
