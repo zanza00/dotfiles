@@ -5,11 +5,11 @@ zsh-users/zsh-history-substring-search
 djui/alias-tips
 
 # oh my zsh
-robbyrussell/oh-my-zsh folder:plugins/command-not-found
-robbyrussell/oh-my-zsh folder:plugins/compleat
-robbyrussell/oh-my-zsh folder:plugins/brew
-robbyrussell/oh-my-zsh folder:plugins/common-aliases
-robbyrussell/oh-my-zsh folder:plugins/git
+# robbyrussell/oh-my-zsh folder:plugins/command-not-found
+# robbyrussell/oh-my-zsh folder:plugins/compleat
+# robbyrussell/oh-my-zsh folder:plugins/brew
+# robbyrussell/oh-my-zsh folder:plugins/common-aliases
+# robbyrussell/oh-my-zsh folder:plugins/git
 
 # theme 
 mafredri/zsh-async

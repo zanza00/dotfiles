@@ -4,8 +4,15 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=/usr/local/bin:/usr/local/sbin:usr/sbin:/sbins:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:~/bin:/Users/simonepicciani/.cargo/bin:/Users/simonepicciani/go/bin:$PATH
 
+ZSH="/Users/simonepicciani/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/"
+
 source /Users/simonepicciani/antigen.zsh
 antigen bundle osx
+antigen bundle command-not-found
+antigen bundle compleat
+antigen bundle brew
+antigen bundle common-aliases
+antigen bundle git
 antigen apply
 
 source <(antibody init)
