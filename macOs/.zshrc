@@ -114,6 +114,11 @@ bind-git-helper() {
 bind-git-helper f b t r h
 unset -f bind-git-helper
 
+git_current_branch() {
+  is_in_git_repo || return
+  echo git rev-parse --abbrev-ref HEAD
+}
+
 # Aliases
 
 unalias fd
