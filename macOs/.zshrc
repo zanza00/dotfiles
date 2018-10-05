@@ -125,6 +125,8 @@ unalias fd
 
 alias tpb='git-town prune-branches'
 
+alias gfom='gfo master:master'
+
 alias cns='open -a Google\ Chrome\ Canary --args --disable-web-security --user-data-dir=$HOME/Documents/development/canary-without-security --remote-debugging-port=9223 --auto-open-devtools-for-tabs'
 
 alias ll='exa -abghl --git --color=automatic'
@@ -138,6 +140,8 @@ alias hft='hophop gh feature'
 alias hpr='hophop gh pr'
 
 alias lg='lazygit'
+
+alias ys='yarn start'
 
 eval $(thefuck --alias)
 
