@@ -1,26 +1,32 @@
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=$HOME/.deno/bin:/usr/local/bin:/usr/local/sbin:usr/sbin:/sbins:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:~/bin:/Users/simonepicciani/.cargo/bin:/Users/simonepicciani/go/bin:$PATH
+export GOPATH=~/gopath
+export PATH=$GOPATH/bin:$PATH
+export KUBEAPPS_DIR=$GOPATH/src/github.com/kubeapps/kubeapps
 
-# ZSH="/Users/simonepicciani/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/"
+export PATH=/usr/local/bin:/usr/local/sbin:usr/sbin:/sbins:/opt/local/bin:/opt/local/sbin:~/.cargo/bin:~/bin:$PATH
 
-source /Users/simonepicciani/antigen.zsh
-antigen bundle osx
-antigen bundle command-not-found
-antigen bundle compleat
-antigen bundle brew
-antigen bundle common-aliases
-antigen bundle git
-antigen apply
+export BW_SESSION=""
+
+# not loading antigen anymore so we need to force it
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	compinit;
+else
+	compinit -C;
+fi;
 
 source <(antibody init)
 antibody bundle < ~/.zsh_plugins.txt
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+#OktaAWSCLI
+if [[ -f "$HOME/.okta/bash_functions" ]]; then
+    . "$HOME/.okta/bash_functions"
+fi
+if [[ -d "$HOME/.okta/bin" && ":$PATH:" != *":$HOME/.okta/bin:"* ]]; then
+    PATH="$HOME/.okta/bin:$PATH"
+fi
 
 # vars
 HISTFILE=$HOME/.zhistory # where the file will be saved
@@ -32,8 +38,6 @@ export BAT_THEME="TwoDark"
 
 # only works this way
 EDITOR=code-insiders
-
-REACT_EDITOR=code-insiders
 
 # Visual Studio Code - Insiders => code .
 alias code='code-insiders'
@@ -68,6 +72,7 @@ fzf_gf() {
   cut -c4- | sed 's/.* -> //'
 }
 
+# Branches
 fzf_gb() {
   is_in_git_repo || return
   git branch -a --color=always | grep -v '/HEAD\s' | sort |
@@ -77,12 +82,14 @@ fzf_gb() {
   sed 's#^remotes/origin/##'
 }
 
+# tags
 fzf_gt() {
   is_in_git_repo || return
   git tag --sort -version:refname |
   fzf-down --multi --preview-window right:70% \
     --preview 'git show --color=always {} | head -'$LINES
 }
+
 
 fzf_gh() {
   is_in_git_repo || return
@@ -126,37 +133,61 @@ git_current_branch() {
   echo git rev-parse --abbrev-ref HEAD
 }
 
+#pretty visit already visited directories
+zstyle ':completion:*' menu select
+
+# remove shared history between terminals
+unsetopt inc_append_history
+unsetopt share_history
+
+# added by travis gem
+[ -f /Users/spicciani/.travis/travis.sh ] && source /Users/spicciani/.travis/travis.sh
+
 # Aliases
 
-unalias fd
+# unalias fd
 
-alias tpb='git-town prune-branches'
-
-alias gfom='gfo master:master'
+unalias duf
 
 alias gpf='gp --force-with-lease'
 
-alias cns='open -a Google\ Chrome\ Canary --args --disable-web-security --user-data-dir=$HOME/Documents/development/canary-without-security --remote-debugging-port=9223 --auto-open-devtools-for-tabs'
+# alias ll='exa -abghl --git --color=automatic'
 
-alias ll='exa -abghl --git --color=automatic'
-
-alias cht='cht.sh'
-
-alias hp='hophop'
-
-alias hft='hophop gh feature'
-
-alias hpr='hophop gh pr'
+if [ "$(command -v exa)" ]; then
+    unalias -m 'll'
+    unalias -m 'l'
+    unalias -m 'la'
+    # unalias -m 'ls'
+    alias lse='exa -G  --color auto --icons -a -s type'
+    alias ll='exa -l --color always --icons -a -s type'
+fi
 
 alias lg='lazygit'
 
+alias gu='gitui'
+
 alias y='yarn'
 
-alias ys='yarn start'
+alias k='kubectl'
 
-alias dev='cd ~/dev'
+alias nuke='git reset --hard HEAD && git clean -fd'
 
+alias dev='cd /Volumes/Crucial\ X8/dev'
+
+alias hs='hub sync'
+
+# command prompt
+eval "$(starship init zsh)"
+
+# fuck
 eval $(thefuck --alias)
+
+# I don't know why but i need to reinitialize it here  
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	compinit;
+else
+	compinit -C;
+fi;
 
 # Display something on init
 # Fancy Mooo
